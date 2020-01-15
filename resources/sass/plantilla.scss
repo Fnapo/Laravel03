@@ -1,0 +1,208 @@
+/*
+    Prepocesador sass de css
+*/
+
+@import 'misColores';
+body {
+    background-color: lightgray;
+    width: 100%;
+}
+
+a.desactivado {
+    /*
+    color: red; //Puedo eliminarlo por el uso de Bootstrap
+    */
+    text-decoration: none;
+    pointer-events: none;
+    /* Desactiva el ratón sobre el link */
+}
+
+[class*="boton-"] {
+    font-size: larger;
+    color: black;
+    text-decoration: none;
+}
+
+[class*="boton-"]:hover {
+    background-color: aquamarine;
+    text-decoration: none;
+}
+
+.caja-boton {
+    background-color: aliceblue;
+    padding: 4px;
+}
+
+.caja-boton:hover {
+    background-color: aliceblue;
+}
+
+.caja-vacia {
+    background-color: inherit;
+    padding: 0;
+}
+
+.caja-vacia:hover {
+    cursor: pointer;
+}
+
+.boton-normal {
+    background-color: olive;
+}
+
+.boton-peligro {
+    background-color: darkred;
+}
+
+.sin-bordes {
+    border: none;
+}
+
+@for $dato from 1 to 31 {
+    .ancho-#{$dato} {
+        display: inline-block;
+        width: $dato*1rem;
+    }
+}
+
+@for $dato from 1 to 101 {
+    @each $grosor in map-keys($grosor-mapa) {
+        @if $dato>10 {
+            .fuente-#{$dato}#{$grosor} {
+                font-size: $dato*1px;
+                font-weight: map-get($grosor-mapa, $grosor);
+            }
+        }
+        @else {
+            .fuente-#{$dato}#{$grosor} {
+                font-size: 10px;
+                font-weight: map-get($grosor-mapa, $grosor);
+            }
+        }
+    }
+}
+
+@each $color in map-keys($color-mapa) {
+    @each $tono in map-keys($tono-mapa) {
+        .fondo-#{$color}#{$tono} {
+            background-color: #{map-get($tono-mapa, $tono)+map-get($color-mapa, $color)};
+        }
+        .color-#{$color}#{$tono} {
+            color: #{map-get($tono-mapa, $tono)+map-get($color-mapa, $color)};
+        }
+    }
+}
+
+.alto-2 {
+    line-height: 2rem;
+}
+
+.alto-3 {
+    line-height: 3rem;
+}
+
+@for $dato from 0 to 21 {
+    .margen-#{$dato} {
+        margin: $dato*1px;
+    }
+    .bordes-#{$dato} {
+        border: $dato*1px solid black;
+    }
+}
+
+@for $dato from 0 to 21 {
+    .pad-#{$dato} {
+        padding: $dato*1px;
+    }
+}
+
+.centraTabla {
+    text-align: center;
+}
+
+.tabla-i-b {
+    display: inline-block;
+}
+
+.tabla {
+    border: 5px solid saddlebrown;
+}
+
+.colapsada {
+    border-collapse: collapse;
+}
+
+.celda {
+    border: 2px solid black;
+    padding: 2px;
+}
+
+.sin-decoracion {
+    text-decoration: none;
+}
+
+a,
+input {
+    padding: 2px;
+}
+
+.nav-pills .nav-item .active {
+    border: 2px solid transparent;
+}
+
+.nav-pills .nav-item .color-azul {
+    border: 2px solid transparent;
+    background-color: lightgreen;
+}
+
+.nav-pills .nav-item .color-azul:hover {
+    border: 2px solid black;
+}
+
+.flex-der {
+    flex-direction: row-reverse;
+}
+
+.flex-izq {
+    flex-direction: row;
+}
+
+.alto-pantalla {
+    height: 100vh;
+}
+
+.ancho-pantalla {
+    width: 100vw;
+}
+
+.texto-hl {
+    text-align: left;
+}
+
+.texto-hc {
+    text-align: center;
+}
+
+.texto-hj {
+    text-align: justify;
+}
+
+.texto-hr {
+    text-align: right;
+}
+
+ol.sin-estilo {
+    list-style: none;
+}
+
+ul.sin-estilo {
+    list-style: none;
+}
+
+.oculto {
+    display: none;
+}
+
+.nav-item:hover .oculto {
+    display: block;
+}

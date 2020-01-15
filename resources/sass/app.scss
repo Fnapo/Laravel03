@@ -1,0 +1,7 @@
+// Fonts
+// @import url('https://fonts.googleapis.com/css?family=Nunito'); // Se comenta y se añade en plantilla.blade.php
+// Se produce un error en app.css que no influye en la app.
+// Variables
+@import 'variables';
+// Bootstrap
+@import '~bootstrap/scss/bootstrap.scss';
